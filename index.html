@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name | Portfolio</title>
+  <meta name="description" content="Personal portfolio showcasing projects and live demos." />
+
+  <!-- Tailwind CSS CDN -->
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js"></script>
+</head>
+<body class="bg-slate-950 text-slate-100">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 w-full bg-slate-950/80 backdrop-blur border-b border-slate-800 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+     <div class="nav-container">
+  <span class="logo">Kaan Myumyun</span>
+
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="min-h-screen flex items-center justify-center px-4">
+    <div class="text-center mt-20">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="text-cyan-400">Kaan Myumyun</span></h1>
+      <p class="text-slate-400 max-w-xl mx-auto mb-8">
+        Aspiring Software Engineer focused on learning, building, and improving through real-world projects.
+      </p>
+      <div class="flex justify-center gap-4">
+        <a href="#projects" class="px-6 py-3 bg-cyan-500 text-black rounded-xl font-medium hover:bg-cyan-400">View Projects</a>
+        <a href="resume.pdf" class="px-6 py-3 border border-slate-700 rounded-xl hover:border-cyan-400">Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project Card -->
+       <section id="projects">
+  <h2>Projects</h2>
+
+  <div class="carousel">
+    <div class="carousel-track" id="projectTrack"></div>
+  </div>
+</section>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-24 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">About Me</h2>
+      <p class="text-slate-400">
+        I'm a developer passionate about building modern web applications. I enjoy working with JavaScript, creating clean UI, and learning new technologies.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-24 px-4 bg-slate-900">
+    <div class="max-w-xl mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center">Contact</h2>
+
+      <!-- Replace action URL with Formspree / EmailJS -->
+      <form action="https://formspree.io/f/xxxxxx" method="POST" class="space-y-4">
+        <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800" />
+        <input type="email" name="email" placeholder="Your Email" required class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800" />
+        <textarea name="message" placeholder="Your Message" rows="4" required class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800"></textarea>
+        <button type="submit" class="w-full py-3 bg-cyan-500 text-black rounded-xl font-medium hover:bg-cyan-400">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-6 text-center text-sm text-slate-500">
+    © <span id="year"></span> Your Name. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <div id="projectModal" class="modal hidden">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <img id="modalImage" src="" alt="">
+    <h3 id="modalTitle"></h3>
+    <p id="modalDescription"></p>
+  </div>
+</div>
+</body>
+</html>
