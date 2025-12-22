@@ -1,38 +1,51 @@
 document.addEventListener("DOMContentLoaded", () => {
   const track = document.getElementById("projectTrack");
 
-  if (!track) return;
+  if (!track) {
+    console.error("projectTrack not found");
+    return;
+  }
 
+  // ===== PROJECT DATA =====
   const projects = [
     {
       title: "Game Engine",
-      description: "Custom-built game engine focusing on core systems and rendering.",
+      description:
+        "A 3D game engine written in C# using OpenTK and OpenGL, focusing on rendering, input handling, and core engine architecture.",
       image: "images/game-engine.png"
     },
     {
       title: "Chess App",
-      description: "Chess application implementing full game rules and logic and a gui.",
-      image: "images/chess-app.png"
+      description:
+        "A C# chess application implementing full chess rules with a playable interface for standard games.",
+      image: "images/chess-app.jpg"
     },
     {
       title: "PHP Forum",
-      description: "Forum system built using PHP with authentication and posts.",
-      image: "images/php-forum.png"
+      description:
+        "A PHP-based forum web application where users can create accounts, post discussion topics, and reply to threads.",
+      image: "images/php-forum.jpg"
     },
     {
       title: "Java Minesweeper",
-      description: "Classic Minesweeper game built in Java with GUI.",
-      image: "images/java-minesweeper.png"
+      description:
+        "A Java implementation of the classic Minesweeper game featuring grid-based logic and mine detection.",
+      image: "images/java-minesweeper.jpg"
     }
   ];
 
-  // ===== Render Cards =====
+  // ===== RENDER PROJECT CARDS =====
   projects.forEach(project => {
     const card = document.createElement("div");
     card.className = "project-card";
 
     card.innerHTML = `
-      <img src="${project.image}" alt="${project.title}" data-title="${project.title}" data-description="${project.description}">
+      <img 
+        src="${project.image}" 
+        alt="${project.title}"
+        data-title="${project.title}"
+        data-description="${project.description}"
+      >
       <h3>${project.title}</h3>
       <p>${project.description}</p>
     `;
@@ -40,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     track.appendChild(card);
   });
 
-  // ===== Modal Logic =====
+  // ===== MODAL LOGIC =====
   const modal = document.getElementById("projectModal");
   const modalImg = document.getElementById("modalImage");
   const modalTitle = document.getElementById("modalTitle");
@@ -66,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ===== Infinite Carousel =====
+  // ===== INFINITE CAROUSEL =====
   const visibleCards = window.innerWidth < 768 ? 1 : 4;
   let index = 0;
 
@@ -79,7 +92,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const allCards = document.querySelectorAll(".project-card");
-  const cardWidth = allCards[0].offsetWidth + 32;
+  const cardGap = 32; // must match CSS gap
+  const cardWidth = allCards[0].offsetWidth + cardGap;
 
   setInterval(() => {
     index++;
