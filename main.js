@@ -92,8 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const allCards = document.querySelectorAll(".project-card");
-  const cardGap = 32; // must match CSS gap
-  const cardWidth = allCards[0].offsetWidth + cardGap;
+const cardWidth = allCards[0].offsetWidth;
 
   setInterval(() => {
     index++;
