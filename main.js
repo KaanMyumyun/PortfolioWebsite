@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       title: "Chess App",
-      description: "Chess application implementing full game rules and logic.",
+      description: "Chess application implementing full game rules and logic and a gui.",
       image: "images/chess-app.png"
     },
     {
