@@ -99,6 +99,91 @@ section h2 {
   text-align: center;
   margin-bottom: 4rem;
 }
+.socials {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+/* ==========================
+   Footer
+========================== */
+footer {
+  border-top: 1px solid #1e293b;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+footer p {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.footer-socials a {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #334155;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border 0.3s ease, transform 0.3s ease;
+}
+
+.footer-socials a:hover {
+  border-color: #22d3ee;
+  transform: translateY(-4px);
+}
+
+.footer-socials svg {
+  width: 20px;
+  height: 20px;
+  fill: #94a3b8;
+  transition: fill 0.3s ease;
+}
+
+.footer-socials a:hover svg {
+  fill: #22d3ee;
+}
+
+.socials a {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #1e293b;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border 0.3s ease, transform 0.3s ease;
+}
+
+.footer-socials {
+  margin-top: 1rem;
+  transform: scale(0.9);
+}
+
+.socials a:hover {
+  border-color: #22d3ee;
+  transform: translateY(-3px);
+}
+
+.socials svg {
+  width: 20px;
+  height: 20px;
+  fill: #e5e7eb;
+}
+
+.socials a:hover svg {
+  fill: #22d3ee;
+}
+
 
 /* ==========================
    Projects Section
