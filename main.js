@@ -31,6 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
       description:
         "A Java implementation of the classic Minesweeper game featuring grid-based logic and mine detection.",
       image: "images/java-minesweeper.jpg"
+    },
+    {
+      title: "URL Shortener",
+      description:
+        "A backend-focused URL shortener built with ASP.NET Core. It exposes a REST API to generate short URLs and redirect users, with Swagger UI for testing.",
+      image: "images/urlshortner.png"
     }
   ];
 
