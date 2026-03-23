@@ -1,3 +1,5 @@
+//add when its clicked it should go to a bigger screen and there is the description add buttons to the actuall github links and other
+
 document.addEventListener("DOMContentLoaded", () => {
   const track = document.getElementById("projectTrack");
 
@@ -7,38 +9,43 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ===== PROJECT DATA =====
-  const projects = [
-    {
-      title: "Game Engine",
-      description:
-        "A 3D game engine written in C# using OpenTK and OpenGL, focusing on rendering, input handling, and core engine architecture.",
-      image: "images/game-engine.png"
-    },
-    {
-      title: "Chess App",
-      description:
-        "A C# chess application implementing full chess rules with a playable interface for standard games.",
-      image: "images/chess-app.jpg"
-    },
-    {
-      title: "PHP Forum",
-      description:
-        "A PHP-based forum web application where users can create accounts, post discussion topics, and reply to threads.",
-      image: "images/php-forum.jpg"
-    },
-    {
-      title: "Java Minesweeper",
-      description:
-        "A Java implementation of the classic Minesweeper game featuring grid-based logic and mine detection.",
-      image: "images/java-minesweeper.jpg"
-    },
-    {
-      title: "URL Shortener",
-      description:
-        "A backend-focused URL shortener built with ASP.NET Core. It exposes a REST API to generate short URLs and redirect users, with Swagger UI for testing.",
-      image: "images/urlshortner.png"
-    }
-  ];
+ const projects = [
+  {
+    title: "Game Engine",
+    description:
+      "A 3D game engine written in C# using OpenTK and OpenGL, focusing on rendering, input handling, and core engine architecture.",
+    image: "images/game-engine.png",
+    github: "https://github.com/KaanMyumyun/GameEngine"
+  },
+  {
+    title: "Chess App",
+    description:
+      "A C# chess application implementing full chess rules with a playable interface for standard games.",
+    image: "images/chess-app.jpg",
+    github: "https://github.com/KaanMyumyun/ChessApp"
+  },
+  {
+    title: "PHP Forum",
+    description:
+      "A PHP-based forum web application where users can create accounts, post discussion topics, and reply to threads.",
+    image: "images/php-forum.jpg",
+    github: "https://github.com/KaanMyumyun/phpforum"
+  },
+  {
+    title: "Java Minesweeper",
+    description:
+      "A Java implementation of the classic Minesweeper game featuring grid-based logic and mine detection.",
+    image: "images/java-minesweeper.jpg",
+    github: "https://github.com/KaanMyumyun/minesweeper"
+  },
+  {
+    title: "URL Shortener",
+    description:
+      "A backend-focused URL shortener built with ASP.NET Core. It exposes a REST API to generate short URLs and redirect users, with Swagger UI for testing.",
+    image: "images/urlshortner.png",
+    github: "https://github.com/KaanMyumyun/UrlShortener"
+  }
+];
 
   // ===== RENDER PROJECT CARDS =====
   projects.forEach(project => {
@@ -46,15 +53,16 @@ document.addEventListener("DOMContentLoaded", () => {
     card.className = "project-card";
 
     card.innerHTML = `
-      <img 
-        src="${project.image}" 
-        alt="${project.title}"
-        data-title="${project.title}"
-        data-description="${project.description}"
-      >
-      <h3>${project.title}</h3>
-      <p>${project.description}</p>
-    `;
+  <img
+    src="${project.image}"
+    alt="${project.title}"
+    data-title="${project.title}"
+    data-description="${project.description}"
+    data-github="${project.github}"
+  >
+  <h3>${project.title}</h3>
+  <p>${project.description}</p>
+`;
 
     track.appendChild(card);
   });
@@ -66,14 +74,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalDesc = document.getElementById("modalDescription");
   const modalClose = document.querySelector(".modal-close");
 
-  track.addEventListener("click", e => {
-    if (e.target.tagName === "IMG") {
-      modalImg.src = e.target.src;
-      modalTitle.textContent = e.target.dataset.title;
-      modalDesc.textContent = e.target.dataset.description;
-      modal.classList.remove("hidden");
-    }
-  });
+ track.addEventListener("click", e => {
+  if (e.target.tagName === "IMG") {
+    modalImg.src = e.target.src;
+    modalTitle.textContent = e.target.dataset.title;
+    modalDesc.textContent = e.target.dataset.description;
+    modal.classList.remove("hidden");
+  }
+});
 
   modalClose.addEventListener("click", () => {
     modal.classList.add("hidden");

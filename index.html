@@ -3,155 +3,318 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kaan Myumyun Portfolio</title>
-  <meta name="description" content="Personal portfolio showcasing projects and live demos." />
+  <title>Kaan Myumyun – Backend & DevOps Developer</title>
 
-  <!-- Tailwind CSS CDN -->
-  <link rel="stylesheet" href="style.css">
-  <script src="main.js"></script>
+  <!-- SEO -->
+  <meta name="description" content="Kaan Myumyun – Backend Developer and aspiring DevOps Engineer based in Bulgaria. Building APIs with .NET, C#, PostgreSQL and Docker." />
+  <meta name="keywords" content="Kaan Myumyun, backend developer, devops, C#, ASP.NET Core, PostgreSQL, Docker, Bulgaria" />
+  <meta name="author" content="Kaan Myumyun" />
+
+  <!-- Open Graph (LinkedIn, Facebook) -->
+  <meta property="og:title" content="Kaan Myumyun – Backend & DevOps Developer" />
+  <meta property="og:description" content="Backend Developer and aspiring DevOps Engineer based in Bulgaria. Building APIs with .NET, C#, PostgreSQL and Docker." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kaanmyumyun.github.io" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Kaan Myumyun – Backend & DevOps Developer" />
+  <meta name="twitter:description" content="Backend Developer and aspiring DevOps Engineer based in Bulgaria." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-slate-950 text-slate-100">
+<body>
 
-  <!-- NAVBAR -->
-  <nav class="fixed top-0 w-full bg-slate-950/80 backdrop-blur border-b border-slate-800 z-50">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-     <div class="nav-container">
-
-
-  <div class="nav-links">
-      <span class="logo">Kaan Myumyun</span>
-    <a href="#home">Home</a>
-    <a href="#projects">Projects</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </div>
-</div>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-<section id="home" class="min-h-screen flex items-center justify-center px-4">
-  <div class="text-center mt-20">
-
-    <h1 class="text-4xl md:text-6xl font-bold mb-4">
-      Hi, I'm <span class="text-cyan-400">Kaan Myumyun</span>
-    </h1>
-
-    <p class="text-slate-400 max-w-xl mx-auto mb-8">
-      Aspiring Software Engineer building hands-on projects across backend development,
-      game development, and core software engineering.
-    </p>
-
-    <!-- Buttons -->
-    <div class="flex justify-center gap-4 mb-8">
-      <a
-        href="#projects"
-        class="px-6 py-3 bg-cyan-500 text-black rounded-xl font-medium hover:bg-cyan-400 transition"
-      >
-        View Projects
-      </a>
-
-      <a
-        href="resume.pdf"
-        class="px-6 py-3 border border-slate-700 rounded-xl hover:border-cyan-400 transition"
-      >
-        Resume
-      </a>
-    </div>
-
-    <div class="socials">
-  <a href="https://github.com/KaanMyumyun" target="_blank" aria-label="GitHub">
-    <svg viewBox="0 0 24 24">
-      <path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.42 7.86 10.95.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.54-3.87-1.54-.53-1.35-1.29-1.71-1.29-1.71-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.3-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.3-.52-1.5.11-3.12 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.5 3.18-1.18 3.18-1.18.63 1.62.23 2.82.11 3.12.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.39-5.25 5.68.41.35.78 1.04.78 2.1v3.1c0 .31.21.67.8.56 4.56-1.53 7.85-5.85 7.85-10.95C23.5 5.74 18.27.5 12 .5z"/>
-    </svg>
-  </a>
-
-  <a href="https://www.linkedin.com/in/kaan-muymuyn-612b03340/" target="_blank" aria-label="LinkedIn">
-    <svg viewBox="0 0 24 24">
-      <path d="M4.98 3.5a2.48 2.48 0 1 0 0 4.96 2.48 2.48 0 0 0 0-4.96ZM3 8.98h3.96V21H3zM9.03 8.98H12.8v1.64h.05c.52-.99 1.79-2.04 3.69-2.04 3.95 0 4.68 2.6 4.68 5.98V21h-3.96v-5.46c0-1.3-.02-2.98-1.82-2.98-1.82 0-2.1 1.42-2.1 2.88V21H9.03z"/>
-    </svg>
-  </a>
-</div>
-
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <span class="nav-name">Kaan Myumyun</span>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+        <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+        <li><a href="#education" onclick="closeMenu()">Education</a></li>
+        <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+      </ul>
+      <button class="dark-toggle" id="darkToggle" title="Toggle dark mode" onclick="toggleDark()">
+        <svg id="iconSun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg id="iconMoon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
-</section>
+</nav>
 
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+
+      <div class="hero-photo">
+        <!-- Replace with: <img src="photo.jpg" alt="Kaan Myumyun" /> -->
+        <div class="photo-placeholder">
+          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.3">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+          <span>Place your<br/>photo here</span>
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-top">
+          <h1 class="hero-heading">Hello, I'm Kaan</h1>
+          <div class="hero-socials">
+            <a class="social-icon" href="https://www.linkedin.com/in/kaan-muymuyn-612b03340/" target="_blank" rel="noopener" title="LinkedIn">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a class="social-icon" href="https://github.com/KaanMyumyun" target="_blank" rel="noopener" title="GitHub">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-bio">
+          <p>As a <em>Backend Developer</em> and aspiring <em>DevOps Engineer</em>, I build reliable APIs and services using C# and ASP.NET Core, with a focus on clean architecture and secure authentication.</p>
+          <p>Currently in my 3rd year of Software Engineering at Trakia University in Bulgaria, actively looking for my first professional role in backend or DevOps engineering.</p>
+        </div>
+
+        <div class="hero-tags">
+          <span class="tag">Backend Development</span>
+          <span class="tag">DevOps</span>
+          <span class="tag">Open to Work</span>
+        </div>
+      </div>
 
     </div>
-  </section>
-
-
-  <!-- PROJECTS -->
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Project Card -->
-       <section id="projects">
-  <h2>Projects</h2>
-
-  <div class="carousel">
-    <div class="carousel-track" id="projectTrack"></div>
   </div>
 </section>
 
+<hr class="divider" />
 
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title">Technical Skills</h2>
+
+    <div class="skills-group">
+      <p class="subsection-label">Languages</p>
+      <div class="skill-grid">
+        <div class="skill-card"><img class="si" src="images/c.png" alt="C#"> C#</div>
+        <div class="skill-card"><img class="si" src="images/java.png" alt="Java"> Java</div>
       </div>
     </div>
-  </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="py-24 px-4">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-6">About Me</h2>
-      <p class="text-slate-400">
-      I’m an aspiring Software Engineer who enjoys building systems from the ground up. I work on projects ranging from game engines and desktop applications to backend web systems, .
-      Through hands-on projects, I’ve gained experience with languages like C#, Java, and PHP, and I’m continuously improving my problem-solving skills, code structure, and software design fundamentals.</p>
+    <div class="skills-group">
+      <p class="subsection-label">Backend & Frameworks</p>
+      <div class="skill-grid">
+        <div class="skill-card"><img class="si" src="images/dotnet.png" alt=".NET"> ASP.NET Core Web API</div>
+        <div class="skill-card"><img class="si" src="images/dotnet.png" alt="EF Core"> Entity Framework Core</div>
+      </div>
     </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="py-24 px-4 bg-slate-900">
-    <div class="max-w-xl mx-auto">
-      <h2 class="text-3xl font-bold mb-8 text-center">Contact</h2>
+    <div class="skills-group">
+      <p class="subsection-label">Databases</p>
+      <div class="skill-grid">
+        <div class="skill-card"><img class="si" src="images/postgres.png" alt="PostgreSQL"> PostgreSQL</div>
+        <div class="skill-card"><img class="si" src="images/msql.png" alt="SQL Server"> SQL Server</div>
+        <div class="skill-card"><img class="si" src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL"> MySQL</div>
+      </div>
+    </div>
 
-      <!-- Replace action URL with Formspree / EmailJS -->
-      <form action="https://formspree.io/f/xxxxxx" method="POST" class="space-y-4">
-        <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800" />
-        <input type="email" name="email" placeholder="Your Email" required class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800" />
-        <textarea name="message" placeholder="Your Message" rows="4" required class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800"></textarea>
-        <button type="submit" class="w-full py-3 bg-cyan-500 text-black rounded-xl font-medium hover:bg-cyan-400">Send Message</button>
+    <div class="skills-group">
+      <p class="subsection-label">DevOps & Tools</p>
+      <div class="skill-grid">
+        <div class="skill-card"><img class="si" src="images/docker.png" alt="Docker"> Docker</div>
+        <div class="skill-card"><img class="si" src="images/Linux.png" alt="Linux"> Linux</div>
+        <div class="skill-card"><img class="si" src="images/bash.png" alt="Bash"> Bash</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">Projects</h2>
+    <div class="project-list">
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">Hospital Management System</span>
+          <a class="project-link" href="https://github.com/KaanMyumyun/HospitalSystem" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <div class="project-stack">
+          <span class="stack-tag">ASP.NET Core</span>
+          <span class="stack-tag">EF Core</span>
+          <span class="stack-tag">PostgreSQL</span>
+          <span class="stack-tag">JWT</span>
+          <span class="stack-tag">React</span>
+          <span class="stack-tag">TypeScript</span>
+        </div>
+        <ul class="project-bullets">
+          <li>Designed a secure RESTful backend with JWT authentication and role-based authorization</li>
+          <li>Built service-layer logic for users, doctors, departments, and appointments</li>
+          <li>Enforced domain rules — admin-only operations, status validation, role restrictions</li>
+          <li>Clean architecture with DTOs, separated controllers, services, and persistence layers</li>
+          <li>Documented all endpoints with Swagger / OpenAPI</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">URL Shortener</span>
+          <a class="project-link" href="https://github.com/KaanMyumyun/UrlShortener" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <div class="project-stack">
+          <span class="stack-tag">ASP.NET Core</span>
+          <span class="stack-tag">EF Core</span>
+          <span class="stack-tag">PostgreSQL</span>
+          <span class="stack-tag">React</span>
+          <span class="stack-tag">TypeScript</span>
+        </div>
+        <ul class="project-bullets">
+          <li>Full-stack URL shortening service with backend API and React frontend</li>
+          <li>Implemented URL creation, redirection, and persistence logic</li>
+          <li>Designed RESTful endpoints and integrated frontend with backend services</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">Pokémon Review App</span>
+        </div>
+        <div class="project-stack">
+          <span class="stack-tag">C#</span>
+          <span class="stack-tag">ASP.NET Core</span>
+          <span class="stack-tag">SQL Server</span>
+        </div>
+        <ul class="project-bullets">
+          <li>Platform where users can browse Pokémon, leave ratings, and post comments</li>
+          <li>Full CRUD with managed relationships between users, reviews, and items</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <h2 class="section-title">Education</h2>
+    <div class="edu-list">
+      <div>
+        <p class="edu-school">Trakia University — Stara Zagora, Bulgaria</p>
+        <p class="edu-detail">Bachelor in Software Engineering &nbsp;·&nbsp; Expected 2027 &nbsp;·&nbsp; 3rd year</p>
+      </div>
+      <div>
+        <p class="edu-school">Secondary School "Vladimir Dimitrov – The Master" — Kardzhali</p>
+        <p class="edu-detail">High School Diploma &nbsp;·&nbsp; Graduated 2023</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Let's Build Together</h2>
+    <p class="contact-sub">I'm actively looking for my first developer or DevOps role. If you have an opportunity or just want to connect, send me a message!</p>
+    <div class="contact-form" id="contactForm">
+      <form action="https://formspree.io/f/mpqyvwbv" method="POST" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cname">Your Name</label>
+          <input type="text" id="cname" name="name" placeholder="Jane Smith" required />
+        </div>
+        <div class="form-group">
+          <label for="cemail">Your Email</label>
+          <input type="email" id="cemail" name="email" placeholder="jane@example.com" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cmessage">Message</label>
+        <textarea id="cmessage" name="message" placeholder="Hi Kaan, I'd like to talk about…" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn" style="margin-top: 0.5rem;">Send Message</button>
       </form>
     </div>
-  </section>
+    <div class="success-msg" id="successMsg">✅ Thanks for reaching out! I'll get back to you soon.</div>
+  </div>
+</section>
 
-  <!-- FOOTER -->
+<!-- FOOTER -->
 <footer>
-  <p>© 2025 Kaan Myumyun</p>
-
-  <div class="footer-socials">
-    <!-- GitHub -->
-    <a
-      href="https://github.com/KaanMyumyun"
-      target="_blank"
-      aria-label="GitHub"
-    >
-      <svg viewBox="0 0 24 24">
-        <path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.42 7.86 10.95.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.54-3.87-1.54-.53-1.35-1.29-1.71-1.29-1.71-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.3-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.3-.52-1.5.11-3.12 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.5 3.18-1.18 3.18-1.18.63 1.62.23 2.82.11 3.12.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.39-5.25 5.68.41.35.78 1.04.78 2.1v3.1c0 .31.21.67.8.56 4.56-1.53 7.85-5.85 7.85-10.95C23.5 5.74 18.27.5 12 .5z"/>
-      </svg>
-    </a>
-
-    <!-- LinkedIn -->
-    <a
-      href="https://www.linkedin.com/in/kaan-muymuyn-612b03340/"
-      target="_blank"
-      aria-label="LinkedIn"
-    >
-      <svg viewBox="0 0 24 24">
-        <path d="M4.98 3.5a2.48 2.48 0 1 0 0 4.96 2.48 2.48 0 0 0 0-4.96ZM3 8.98h3.96V21H3zM9.03 8.98H12.8v1.64h.05c.52-.99 1.79-2.04 3.69-2.04 3.95 0 4.68 2.6 4.68 5.98V21h-3.96v-5.46c0-1.3-.02-2.98-1.82-2.98-1.82 0-2.1 1.42-2.1 2.88V21H9.03z"/>
-      </svg>
-    </a>
+  <div class="container">
+    <span class="footer-text">© 2025 Kaan Myumyun. All rights reserved.</span>
+    <span class="footer-text"><a href="mailto:kaan.myumyunn@gmail.com">kaan.myumyunn@gmail.com</a></span>
   </div>
 </footer>
+
+<script>
+  // Dark mode
+  function toggleDark() {
+    const dark = document.body.classList.toggle('dark');
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+    document.getElementById('iconSun').style.display = dark ? 'block' : 'none';
+    document.getElementById('iconMoon').style.display = dark ? 'none' : 'block';
+  }
+  // Restore on load
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark');
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('iconSun').style.display = 'block';
+      document.getElementById('iconMoon').style.display = 'none';
+    });
+  }
+
+  // Hamburger
+  function toggleMenu() {
+    const links = document.getElementById('navLinks');
+    const burger = document.getElementById('hamburger');
+    links.classList.toggle('open');
+    burger.classList.toggle('active');
+  }
+  function closeMenu() {
+    document.getElementById('navLinks').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('active');
+  }
+
+  // Contact form
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+    } else {
+      alert('Something went wrong. Please try again.');
+    }
+  }
+</script>
 
 </body>
 </html>
