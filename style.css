@@ -46,9 +46,18 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
 .hero-photo {
   width: 100%; aspect-ratio: 3/4; border-radius: 10px;
   background: #d8d4ce; overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
+  display: flex; align-items: center; justify-content: center;position: relative;
 }
-.hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-photo img { 
+  position: absolute; /* 2. Takes the image out of the flex layout */
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  display: block; 
+  z-index: 10; /* 3. Puts the image visually on top of the placeholder */
+}
 .photo-placeholder {
   display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
   color: #999; font-size: 0.78rem; text-align: center; padding: 1.5rem;
@@ -65,7 +74,7 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
 }
 .social-icon:hover { background: var(--border); text-decoration: none; }
 
-.hero-bio { color: #2e2e2e; margin-bottom: 1.4rem; font-size: 0.93rem; }
+.hero-bio { color: var(--text); margin-bottom: 1.4rem; font-size: 0.93rem; }
 .hero-bio p + p { margin-top: 0.8rem; }
 .hero-bio em { font-style: italic; font-weight: 500; }
 
@@ -110,10 +119,10 @@ section { padding: 3rem 0; }
 .stack-tag {
   background: var(--bg); border: 1px solid var(--border);
   font-size: 0.71rem; font-weight: 500;
-  padding: 0.18rem 0.55rem; border-radius: 5px; color: #444;
+  padding: 0.18rem 0.55rem; border-radius: 5px; color: var(--text);
 }
 .project-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.28rem; }
-.project-bullets li { font-size: 0.865rem; color: #333; padding-left: 1.1rem; position: relative; }
+.project-bullets li { font-size: 0.865rem; color: var(--text); padding-left: 1.1rem; position: relative; }
 .project-bullets li::before { content: '+'; position: absolute; left: 0; color: var(--muted); font-weight: 700; }
 
 /* ── EDUCATION ── */
@@ -237,10 +246,11 @@ footer .container { display: flex; align-items: center; justify-content: space-b
 
 /* ── DARK MODE ── */
 body.dark {
+
   --bg: #0f1117;
   --card: #1a1d27;
   --text: #e8e8e8;
-  --muted: #8b8b8b;
+  --muted: #d1d1d1;
   --border: #2a2d3a;
   --accent: #5b8dee;
 }
@@ -257,9 +267,14 @@ body.dark textarea {
   color: var(--text);
 }
 body.dark .submit-btn {
-  background: #e8e8e8;
-  color: #111;
+  background: #2a2d3a; 
+  color: #e8e8e8;    
 }
+
 body.dark .submit-btn:hover {
-  background: #ccc;
+  background: #3a3f58; 
+}
+body.dark ::placeholder {
+  color: var(--muted);
+  opacity: 1; 
 }
