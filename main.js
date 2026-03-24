@@ -1,124 +1,102 @@
-//add when its clicked it should go to a bigger screen and there is the description add buttons to the actuall github links and other
+// ── DARK MODE ──
+function toggleDark() {
+  const dark = document.body.classList.toggle('dark');
+  localStorage.setItem('theme', dark ? 'dark' : 'light');
+  document.getElementById('iconSun').style.display = dark ? 'block' : 'none';
+  document.getElementById('iconMoon').style.display = dark ? 'none' : 'block';
+}
 
-document.addEventListener("DOMContentLoaded", () => {
-  const track = document.getElementById("projectTrack");
-
-  if (!track) {
-    console.error("projectTrack not found");
-    return;
-  }
-
-  // ===== PROJECT DATA =====
- const projects = [
-  {
-    title: "Game Engine",
-    description:
-      "A 3D game engine written in C# using OpenTK and OpenGL, focusing on rendering, input handling, and core engine architecture.",
-    image: "images/game-engine.png",
-    github: "https://github.com/KaanMyumyun/GameEngine"
-  },
-  {
-    title: "Chess App",
-    description:
-      "A C# chess application implementing full chess rules with a playable interface for standard games.",
-    image: "images/chess-app.jpg",
-    github: "https://github.com/KaanMyumyun/ChessApp"
-  },
-  {
-    title: "PHP Forum",
-    description:
-      "A PHP-based forum web application where users can create accounts, post discussion topics, and reply to threads.",
-    image: "images/php-forum.jpg",
-    github: "https://github.com/KaanMyumyun/phpforum"
-  },
-  {
-    title: "Java Minesweeper",
-    description:
-      "A Java implementation of the classic Minesweeper game featuring grid-based logic and mine detection.",
-    image: "images/java-minesweeper.jpg",
-    github: "https://github.com/KaanMyumyun/minesweeper"
-  },
-  {
-    title: "URL Shortener",
-    description:
-      "A backend-focused URL shortener built with ASP.NET Core. It exposes a REST API to generate short URLs and redirect users, with Swagger UI for testing.",
-    image: "images/urlshortner.png",
-    github: "https://github.com/KaanMyumyun/UrlShortener"
-  }
-];
-
-  // ===== RENDER PROJECT CARDS =====
-  projects.forEach(project => {
-    const card = document.createElement("div");
-    card.className = "project-card";
-
-    card.innerHTML = `
-  <img
-    src="${project.image}"
-    alt="${project.title}"
-    data-title="${project.title}"
-    data-description="${project.description}"
-    data-github="${project.github}"
-  >
-  <h3>${project.title}</h3>
-  <p>${project.description}</p>
-`;
-
-    track.appendChild(card);
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark');
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('iconSun').style.display = 'block';
+    document.getElementById('iconMoon').style.display = 'none';
   });
+}
 
-  // ===== MODAL LOGIC =====
-  const modal = document.getElementById("projectModal");
-  const modalImg = document.getElementById("modalImage");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalDesc = document.getElementById("modalDescription");
-  const modalClose = document.querySelector(".modal-close");
+// ── SMOOTH SCROLL WITH NAV OFFSET ──
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const href = link.getAttribute('href');
+    if (!href.startsWith('#')) return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (!target) return;
+    const navHeight = document.querySelector('nav').offsetHeight;
+    const top = target.getBoundingClientRect().top + window.scrollY - navHeight - 8;
+    window.scrollTo({ top, behavior: 'smooth' });
+    closeMenu();
+  });
+});
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('active');
+}
 
- track.addEventListener("click", e => {
-  if (e.target.tagName === "IMG") {
-    modalImg.src = e.target.src;
-    modalTitle.textContent = e.target.dataset.title;
-    modalDesc.textContent = e.target.dataset.description;
-    modal.classList.remove("hidden");
+function closeMenu() {
+  document.getElementById('navLinks').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('active');
+}
+
+// ── CONTACT FORM ──
+async function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const res = await fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  });
+  if (res.ok) {
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  } else {
+    alert('Something went wrong. Please try again.');
   }
+}
+
+// ── COPY EMAIL ──
+function copyEmail() {
+  navigator.clipboard.writeText('kaan.myumyunn@gmail.com');
+  const tip = document.getElementById('copyTooltip');
+  tip.classList.add('show');
+  setTimeout(() => tip.classList.remove('show'), 2000);
+}
+
+// ── BACK TO TOP ──
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('backToTop');
+  if (btn) btn.classList.toggle('visible', window.scrollY > 400);
 });
 
-  modalClose.addEventListener("click", () => {
-    modal.classList.add("hidden");
+// ── ON DOM READY ──
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Scroll-in animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+        observer.unobserve(el.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 80) current = sec.getAttribute('id');
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
   });
-
-  modal.addEventListener("click", e => {
-    if (e.target === modal) {
-      modal.classList.add("hidden");
-    }
-  });
-
-  // ===== INFINITE CAROUSEL =====
-  const visibleCards = window.innerWidth < 768 ? 1 : 4;
-  let index = 0;
-
-  const originalCards = Array.from(
-    document.querySelectorAll(".project-card")
-  );
-
-  originalCards.slice(0, visibleCards).forEach(card => {
-    track.appendChild(card.cloneNode(true));
-  });
-
-  const allCards = document.querySelectorAll(".project-card");
-const cardWidth = allCards[0].offsetWidth;
-
-  setInterval(() => {
-    index++;
-    track.style.transition = "transform 0.6s ease";
-    track.style.transform = `translateX(-${index * cardWidth}px)`;
-
-    if (index === originalCards.length) {
-      setTimeout(() => {
-        track.style.transition = "none";
-        index = 0;
-        track.style.transform = "translateX(0)";
-      }, 600);
-    }
-  }, 3500);
 });
